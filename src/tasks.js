@@ -1,8 +1,33 @@
 // CampusEats task list
+
 const tasks = [
-  "Design the menu screen",
-  "Build the orders API",
-  "Add user login",
+  {
+    title: "Design the menu screen",
+    status: "open",
+  },
+  {
+    title: "Build the orders API",
+    status: "open",
+  },
+  {
+    title: "Add user login",
+    status: "open",
+  },
 ];
 
-console.log(`CampusEats has ${tasks.length} open tasks`);
+function addTask(title) {
+  if (!title || title.trim() === "") {
+    throw new Error("Task title cannot be empty");
+  }
+
+  tasks.push({
+    title,
+    status: "open",
+  });
+}
+
+function showTaskCount() {
+  console.log(`CampusEats has ${tasks.length} open tasks`);
+}
+
+showTaskCount();
